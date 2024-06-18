@@ -29,9 +29,14 @@ export const useGetWeather = () => {
             }
             ], main: {
             temp: temperature
-            }} = data
-            temperature = temperature.toFixed(0)
-            setInfoWeather({weather, description, temperature})
+            },
+            sys: {
+                sunset
+            },
+            name} = data
+            temperature = temperature.toFixed(0);
+            sunset = new Date(sunset * 1000).toLocaleTimeString('es-ES')
+            setInfoWeather({weather, description, temperature, name, sunset})
         } catch (error) {
             console.error(error)
         }

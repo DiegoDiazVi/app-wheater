@@ -5,13 +5,12 @@ import './App.css'
 
 function App() {
   const {infoWeather} = useGetWeather();
-
-  console.log(infoWeather)
+  const {weather, description, temperature, name, sunset} = infoWeather
   return (
     <main className='weather-container'>
-      {!isObjectEmpty(infoWeather) && <Square degrees={infoWeather.temperature} weather={infoWeather.weather} hasIcon/>}
-      {!isObjectEmpty(infoWeather) && <Square degrees={infoWeather.temperature} weather={infoWeather.weather} hasIcon/>}
-      {!isObjectEmpty(infoWeather) && <Square degrees={infoWeather.temperature} weather={infoWeather.weather} hasIcon/>}
+      {!isObjectEmpty(infoWeather) && <Square degrees={temperature} hasIcon/>}
+      {!isObjectEmpty(infoWeather) && <Square neighborhood={name} weather={weather} hasIcon={false}/>}
+      {!isObjectEmpty(infoWeather) && <Square description={description}  sunset={sunset}/>}
     </main>
   )
 }
