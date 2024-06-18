@@ -1,6 +1,10 @@
+/**
+ * Retrieves the current location coordinates using the browser's geolocation API.
+ * @returns {Promise<{latitude: number, longitude: number}>} A promise that resolves to an object containing the latitude and longitude of the current location.
+ */
 export const getLocation = () => {
     return new Promise((resolve, reject) => {
-        const succesLocation = (location) => {
+        const successLocation = (location) => {
             const { coords } = location;
             resolve({ latitude: coords.latitude , longitude: coords.longitude})
         }
@@ -10,6 +14,6 @@ export const getLocation = () => {
             reject(err)
         }
 
-        navigator.geolocation.getCurrentPosition(succesLocation, error);
+        navigator.geolocation.getCurrentPosition(successLocation, error);
     })
 }
