@@ -8,9 +8,9 @@ function App() {
   const {weather, description, temperature, name, sunset} = infoWeather
   return (
     <main className='weather-container'>
-      {!isObjectEmpty(infoWeather) && <Square degrees={temperature} hasIcon/>}
-      {!isObjectEmpty(infoWeather) && <Square neighborhood={name} weather={weather} hasIcon={false}/>}
-      {!isObjectEmpty(infoWeather) && <Square description={description}  sunset={sunset}/>}
+      {!isObjectEmpty(infoWeather) && <Square degrees={temperature} neighborhood={name} hasIcon={false}/>}
+      {!isObjectEmpty(infoWeather) && <Square weather={weather} hasIcon/>}
+      {!isObjectEmpty(infoWeather) && <Square description={description}  sunset={sunset} hasIcon={false}/>}
     </main>
   )
 }
