@@ -1,12 +1,20 @@
 export default function Square ({ degrees, weather, hasIcon, description, neighborhood, sunset }) {
+    const icons = {
+        Sun: '☀️',
+        Clouds: '☁️',
+        Rain: '🌧️',
+        Snow: '❄️',
+        Storm: '⛈️',
+        Mist: '🌫️'
+    }
     return(
         <section className='square'>
-            {neighborhood && <p className='neighborhood'>{neighborhood}</p>}
             {degrees && <h2 className='degrees'>{`${degrees}° C`}</h2>}
-            {weather && <p className='weather'>{weather}</p>}
+            {neighborhood && <p className='weather'>{neighborhood}</p>}
+            {weather && <p className='degrees'>{weather}</p>}
             {description && <p className='degrees'>{description}</p>}
             {sunset && <p className='weather'>{`Atardecer: ${sunset}`}</p>}
-            {hasIcon && <div className='icon'>Icono</div>}
+            {hasIcon && <div className='icon'>{icons[weather]}</div>}
         </section>
     )
 }
